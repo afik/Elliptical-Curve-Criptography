@@ -21,7 +21,14 @@ public class Curve {
     public void setP (long L){
         this.p = L;
     }
+
+    public void setA (long L){
+        this.a = L;
+    }
     
+    public void setB (long L){
+        this.b = L;
+    }
     /**
      * Find all elliptic group of equation y^2 = x^3+ax+b
      */
@@ -51,8 +58,9 @@ public class Curve {
             x++;
        }
        ellipticGroup.add(Point.O);
+       System.out.println("Elliptic grup : " + ellipticGroup.size());
        for (int i =0; i<ellipticGroup.size(); i++){
-           System.out.println(ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY());
+           System.out.print("(" + ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY() + ") ");
        }
     }
     

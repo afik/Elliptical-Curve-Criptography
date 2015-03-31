@@ -105,8 +105,15 @@ public class ECC {
         this.auxParam = k;
     }
     
-    public void setBasePoint (Point p){
-        this.basePoint = p;
+    //set base point
+    //ensure it exist in elliptic grup of curve ec
+    public int setBasePoint (Point p){
+        int retVal = -1;
+        if (ec.isPointInGroup(p)){
+            this.basePoint = p;
+            retVal = 1;
+        }
+        return retVal;
     }
     
     public void setCipherX (Point p){
@@ -154,6 +161,7 @@ public class ECC {
     //Encode using koblitz (long -> Point)
     public Point encodeChar (long m, long k){
         Point pm = new Point();
+        boolean encoded = false;
         long it = 1;
         long x, y;
         do{
@@ -162,10 +170,15 @@ public class ECC {
             if(y != 0){
                 pm.setX(x);
                 pm.setY(y);
+                encoded = true;
             }
             it++;
-        }while (ec.getY(x) == 0 && it < k);
+        }while (!encoded && it < k);
         
+        if (!encoded) {
+            pm = Point.O;
+        }
+        //System.out.println(pm.getX() + " " + pm.getY());
         return pm;
     }
     
@@ -185,9 +198,11 @@ public class ECC {
         int len = toBeEncoded.length;
         for (int i=0; i < len; i++){
             b = toBeEncoded[i];
-            System.out.println(b);
             temp = encodeChar((long)b,kForKoblitz); //bisakah cast byte ke long?
-            arrPoint.set(i, temp);
+            if (temp != Point.O){
+                arrPoint.add(temp);
+                //System.out.println("Point : " + temp.getX() + " " + temp.getY());
+            }
         }
         return arrPoint;
     }
@@ -273,13 +288,23 @@ public class ECC {
         Point pm = new Point();
         //pm = eccrypt.encodeChar(11,20);
         
-        Curve cur = new Curve();
-        cur.setP(11);
-        cur.setEllipticGrup();
-        Point po = new Point(2,4);
-        System.out.println(cur.isPointInGroup(po));
-        //byte[] B = eccrypt.readFileToBytes("D:\\[6]\\IF4020 Kripto\\Tucil 3\\testfile.txt");
-        //System.out.println(B[0] + "," + B[1] + "," + B.length);
+        //set curve
+        eccrypt.getCurve().setA(-1);
+        eccrypt.getCurve().setB(188);
+        eccrypt.getCurve().setP(751);
+        eccrypt.getCurve().setEllipticGrup();
+        //read file
+        byte[] B = eccrypt.readFileToBytes("D:\\AFIK\\Project\\ECC\\lorem.txt");
+        
+        //set parameters for encrypt and decrypt
+        eccrypt.setAuxParam(15);
+        int retBase = eccrypt.setBasePoint(new Point(742,745));
+        if (retBase==1) {
+            
+        }
+        else {
+            System.out.println("Base point harus ada di elliptic grup kurva");
+        }
         
     }
 
