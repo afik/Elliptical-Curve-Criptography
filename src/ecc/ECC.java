@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ecc;
 
 import com.google.common.math.LongMath;
@@ -71,18 +65,6 @@ public class ECC {
         long bChar;
         bChar = eccrypt.decodeChar(224, 20);
         System.out.println(bChar);
-//        ArrayList<Point> tes = new ArrayList();
-//        tes.add(new Point(2,2));
-//        Point p = new Point(2,2);
-//        System.out.println(tes.contains(p));
-    }
-    
-    public char decode(Point p, int k) {
-        char ret;
-        long val = (p.getX()-1)/k;
-        System.out.println(val);
-        ret = (char) LongMath.mod(val, 255);
-        return ret;
     }
 
     
