@@ -188,8 +188,18 @@ public class ECCgui extends javax.swing.JApplet {
         labelEncryptKey1.setText("Encrypt key");
 
         btnBrowseEncryptKey1.setText("Browse");
+        btnBrowseEncryptKey1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBrowseEncryptKey1MouseClicked(evt);
+            }
+        });
 
         btnEncrypt1.setText("Encrypt!");
+        btnEncrypt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEncrypt1MouseClicked(evt);
+            }
+        });
 
         labelBasePointEnc1.setText("Base Point");
 
@@ -519,6 +529,7 @@ public class ECCgui extends javax.swing.JApplet {
                     sb += selectedfile.getName();
                     fullPath += selectedfile.getAbsolutePath();
                     this.labelFilePesan1.setText(sb);
+                    this.filePath = fullPath;
             try {
                 tempPesan = ecc.readFile(fullPath);
                 ecc.setPesan(tempPesan);
@@ -598,6 +609,82 @@ public class ECCgui extends javax.swing.JApplet {
             
         }
     }//GEN-LAST:event_btnSaveKeys1MouseClicked
+
+    private void btnBrowseEncryptKey1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBrowseEncryptKey1MouseClicked
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        String sb = "";
+        String fullPath = "";
+        String tempText;
+        String x_temp = "";
+        String y_temp = "";
+        Point pk_temp = new Point();
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int retval = fc.showOpenDialog(null);
+        if (retval == JFileChooser.APPROVE_OPTION) {
+                    File selectedfile = fc.getSelectedFile();
+                    sb += selectedfile.getName();
+                    fullPath += selectedfile.getAbsolutePath();
+            try {
+                String bp_temp = ecc.readFile(fullPath);
+                int it = 1;
+                do{
+                    x_temp += bp_temp.charAt(it);
+                    it++;
+                }while(bp_temp.charAt(it)!= ',');
+                do{
+                    y_temp += bp_temp.charAt(it+1);
+                    it++;
+                }while(bp_temp.charAt(it+1)!= ')');
+                pk_temp.setX((long)Integer.parseInt(x_temp));
+                pk_temp.setY((long)Integer.parseInt(y_temp));
+                ecc.setEncKey(pk_temp);
+                this.fieldInputEncryptKey1.setText(bp_temp);
+            } catch (IOException ex) {
+                Logger.getLogger(ECCgui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnBrowseEncryptKey1MouseClicked
+
+    private void btnEncrypt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEncrypt1MouseClicked
+        // TODO add your handling code here:
+        ecc.setAuxParam((long)Integer.parseInt(this.fieldInputKEnc1.getText()));
+        String bp_temp = this.fieldInputBaseEnc1.getText();
+        String x_temp = "";
+        String y_temp = "";
+        Point base = new Point();
+        int it = 1;
+        do{
+            x_temp += bp_temp.charAt(it);
+            it++;
+        }while(bp_temp.charAt(it)!= ',');
+        do{
+            y_temp += bp_temp.charAt(it+1);
+            it++;
+        }while(bp_temp.charAt(it+1)!= ')');
+        base.setX((long)Integer.parseInt(x_temp));
+        base.setY((long)Integer.parseInt(y_temp));
+        ecc.setBasePoint(base);
+        String enckey_temp = this.fieldInputEncryptKey1.getText();
+        x_temp = "";
+        y_temp = "";
+        Point enckey = new Point();
+        it = 1;
+        do{
+            x_temp += enckey_temp.charAt(it);
+            it++;
+        }while(enckey_temp.charAt(it)!= ',');
+        do{
+            y_temp += enckey_temp.charAt(it+1);
+            it++;
+        }while(enckey_temp.charAt(it+1)!= ')');
+        enckey.setX((long)Integer.parseInt(x_temp));
+        enckey.setY((long)Integer.parseInt(y_temp));
+        ecc.setEncKey(enckey);
+        ecc.Encrypt();
+        String cipherHexa = ecc.pointToHexa(ecc.getCipherYs());
+        this.areaCipherEnc1.setText(cipherHexa);
+    }//GEN-LAST:event_btnEncrypt1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
