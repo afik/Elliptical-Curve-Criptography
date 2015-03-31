@@ -18,7 +18,7 @@ import static sun.security.krb5.Confounder.bytes;
 public class ECC {
     
     //Attributes
-    private long kForKoblitz;
+    private long kForKoblitz = 20;
     private String pesan;
     private byte[] pesanInByte;
     private Point encKey;
@@ -151,7 +151,7 @@ public class ECC {
         return data;
     }
     
-    //Encode
+    //Encode using koblitz (long -> Point)
     public Point encodeChar (long m, long k){
         Point pm = new Point();
         long it = 1;
@@ -169,7 +169,7 @@ public class ECC {
         return pm;
     }
     
-    //Decode
+    //Decode using koblitz (point.x -> long)
     public long decodeChar (long x, long k){
         long m;
         m = (x-1) / k;
@@ -185,6 +185,7 @@ public class ECC {
         int len = toBeEncoded.length;
         for (int i=0; i < len; i++){
             b = toBeEncoded[i];
+            System.out.println(b);
             temp = encodeChar((long)b,kForKoblitz); //bisakah cast byte ke long?
             arrPoint.set(i, temp);
         }
@@ -264,31 +265,22 @@ public class ECC {
     }
       
     
-    
-    /**
-     * Encrypt message to point
-     */
-    public Point EnkripsiKarakter(char ch){
-        return new Point();
-    }
-            
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Point pm = new Point();
         ECC eccrypt = new ECC();
-        pm = eccrypt.encodeChar(11,20);
+        Point pm = new Point();
+        //pm = eccrypt.encodeChar(11,20);
         
         Curve cur = new Curve();
+        cur.setP(11);
         cur.setEllipticGrup();
-        Point po = new Point(2,2);
+        Point po = new Point(2,4);
         System.out.println(cur.isPointInGroup(po));
-//        char c = 'a';
-//        byte b = (byte)c;
-//        System.out.println(b);
-        byte[] B = eccrypt.readFileToBytes("D:\\[6]\\IF4020 Kripto\\Tucil 3\\testfile.txt");
-        System.out.println(B[0] + "," + B[1] + "," + B.length);
+        //byte[] B = eccrypt.readFileToBytes("D:\\[6]\\IF4020 Kripto\\Tucil 3\\testfile.txt");
+        //System.out.println(B[0] + "," + B[1] + "," + B.length);
+        
     }
 
     
