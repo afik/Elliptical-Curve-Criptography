@@ -7,6 +7,7 @@
 package ecc;
 
 import com.google.common.math.LongMath;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public class ECC {
     //Point pm;
     private String pesan;
     private Point pb;
+    private Curve ec;
     
     //Getter - Setter
     public String getPesan (){
@@ -29,15 +31,14 @@ public class ECC {
     }
     
     //Encode
-    public Point encodeChar (int m, int k){
+    public Point encodeChar (long m, long k){
         Point pm;
-        int it;
-        int x;
-        for (it=1;it<k;it++){
+        long it = 1;
+        long x, y;
+        ec.setEllipticGrup();
+        do {
             x = m*k + it;
-//            if (){
-//                
-//            }
+            y = 
         }
         return pm;
     }
@@ -46,8 +47,13 @@ public class ECC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Curve c = new Curve();
-        c.setEllipticGrup();
+        //Curve c = new Curve();
+        //c.setEllipticGrup();
+        
+        ArrayList<Point> tes = new ArrayList();
+        tes.add(new Point(2,2));
+        Point p = new Point(2,2);
+        System.out.println(tes.contains(p));
     }
     
 }
