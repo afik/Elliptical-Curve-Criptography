@@ -231,13 +231,44 @@ public class ECC {
      }
     
     //Fungsi untuk membaca hexa lalu menyimpannya ke cipherInByte, utk dekripsi
-    
-    
+    public void hexaToByte (String s){
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                                 + Character.digit(s.charAt(i+1), 16));
+        }
+        cipherInByte = data;
+    }    
     
     //Fungsi untuk dekripsi: encode cipherInByte, proses per byte, decode
-    
-    
-    
+    public void Decrypt (){
+        ArrayList<Point> temp = new ArrayList<>();
+        ArrayList<Point> toBeDecoded = new ArrayList<>();
+        
+        Point p_temp;
+        Point kB;
+        kB = ec.perkalian(basePoint, auxParam);
+        Point bkB;
+        bkB = ec.perkalian(kB, decKey);
+        Point inv_bkB;
+        inv_bkB = bkB.inverse();
+        for (int i = 0; i < cipherInByte.length ; i++){
+            p_temp = encodeChar((long)cipherInByte[i],kForKoblitz);
+            temp.set(i, p_temp);
+        }
+        for (int i = 0; i < temp.size(); i++){
+            p_temp = ec.penjumlahan(temp.get(i), inv_bkB);
+            toBeDecoded.set(i, p_temp);
+        }
+        byte[] decResult = new byte[toBeDecoded.size()];
+        for (int i=0; i<toBeDecoded.size(); i++){
+            decResult[i] = (byte) decodeChar(toBeDecoded.get(i).getX(), kForKoblitz);
+        }
+        String plaintext = new String(decResult);
+        pesan = plaintext;
+    }
+      
     
     
     /**

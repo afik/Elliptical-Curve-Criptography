@@ -18,6 +18,10 @@ public class Curve {
     private long p = 751;
     public ArrayList<Point> ellipticGroup;
     
+    public void setP (long L){
+        this.p = L;
+    }
+    
     /**
      * Find all elliptic group of equation y^2 = x^3+ax+b
      */
