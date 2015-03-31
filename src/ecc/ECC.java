@@ -6,6 +6,8 @@
 
 package ecc;
 
+import com.google.common.math.LongMath;
+
 /**
  *
  * @author Afik
@@ -16,7 +18,8 @@ public class ECC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Curve c = new Curve();
+        c.setEllipticGrup();
     }
     
 }
