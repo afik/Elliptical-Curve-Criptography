@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JAppletFormInfo">
+  <Properties>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Default Cursor"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -19,95 +24,25 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="AppTitle" min="-2" pref="389" max="-2" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelEncrypt" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnBrowsePesan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelFilePesan" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="AppTitle" min="-2" pref="389" max="-2" attributes="0"/>
+                      <EmptySpace pref="522" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelEncTime" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane5" pref="0" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelInfoWaktuEnc" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelFilesize" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelInfoFilesize" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="btnSaveCipher" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnEncrypt" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelBasePointEnc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="fieldInputBaseEnc" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelEncryptKey" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="fieldInputEncryptKey" min="-2" pref="111" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnBrowseEncryptKey" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelKEnc" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="AppTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labelEncrypt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnBrowsePesan" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelFilePesan" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelEncryptKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fieldInputEncryptKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnBrowseEncryptKey" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelBasePointEnc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fieldInputBaseEnc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelKEnc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnEncrypt" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelEncTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelInfoWaktuEnc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelFilesize" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelInfoFilesize" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnSaveCipher" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane5" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -117,248 +52,528 @@
     <Component class="javax.swing.JLabel" name="AppTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="3"/>
+          <Font name="Tahoma" size="24" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ECC Implementation"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="627" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelInputP" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fieldInputP" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="labelGenerateKunci" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnGenerateEllipticalGroup" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelPublicKey" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="fieldPublicKey" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelPrivateKey" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="fieldPrivateKey" min="-2" pref="69" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelBasePoint" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="fieldInputBasePoint" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnGeneratePublicKey" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="btnSaveKeys" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="labelGenerateKunci" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelInputP" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="fieldInputP" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnGenerateEllipticalGroup" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelPrivateKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldPrivateKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelBasePoint" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldInputBasePoint" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnGeneratePublicKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelPublicKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fieldPublicKey" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSaveKeys" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="labelInputP">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="p"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSaveKeys">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Save Keys"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelGenerateKunci">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Generate Kunci"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnGenerateEllipticalGroup">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Get Elliptical Group"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateEllipticalGroupActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnGeneratePublicKey">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Generate Public Key"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="areaEllipticalGroup">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JLabel" name="labelBasePoint">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Base Point"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldInputP">
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldInputBasePoint">
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelPublicKey">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Public key"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldPrivateKey">
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelPrivateKey">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Private key"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fieldPublicKey">
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="labelEncrypt">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Encrypt"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnBrowsePesan">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Browse pesan"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelFilePesan">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tidak ada file yang dipilih..."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelEncryptKey">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Encrypt key"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="fieldInputEncryptKey">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnBrowseEncryptKey">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Browse"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnEncrypt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Encrypt!"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelBasePointEnc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Base Point"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="fieldInputBaseEnc">
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="areaCipherEnc">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel4">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane6" alignment="0" min="-2" pref="627" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelInputP1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="fieldInputP1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="labelGenerateKunci1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnGenerateEllipticalGroup1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelPublicKey1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="fieldPublicKey1" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelPrivateKey1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="fieldPrivateKey1" min="-2" pref="69" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelBasePoint1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="fieldInputBasePoint1" min="-2" pref="70" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btnGeneratePublicKey1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="btnSaveKeys1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="247" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelGenerateKunci1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelInputP1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="fieldInputP1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGenerateEllipticalGroup1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelPrivateKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldPrivateKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelBasePoint1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldInputBasePoint1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnGeneratePublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelPublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldPublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSaveKeys1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="areaEllipticalGroup1">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="labelInputP1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="p"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSaveKeys1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save Keys"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelGenerateKunci1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Generate Kunci"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnGenerateEllipticalGroup1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Get Elliptical Group"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateEllipticalGroup1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnGeneratePublicKey1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Generate Public Key"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelBasePoint1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Base Point"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldInputP1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldInputBasePoint1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelPublicKey1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Public key"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldPrivateKey1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelPrivateKey1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Private key"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldPublicKey1">
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="labelBasePointEnc1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="fieldInputBaseEnc1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="labelEncryptKey1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="fieldInputEncryptKey1" min="-2" pref="111" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="labelKEnc1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="fieldInputKEnc1" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
+                                      <Component id="btnBrowseEncryptKey1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="labelEncrypt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnBrowsePesan1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="labelFilePesan1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelEncTime1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="labelInfoWaktuEnc1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelFilesize2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="labelInfoFilesize1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnSaveCipher1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnEncrypt1" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelEncrypt1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnBrowsePesan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFilePesan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelEncryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputEncryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBrowseEncryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelBasePointEnc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputBaseEnc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelKEnc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputKEnc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnEncrypt1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelEncTime1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelInfoWaktuEnc1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelFilesize2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelInfoFilesize1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnSaveCipher1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labelEncrypt1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Encrypt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBrowsePesan1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Browse pesan"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFilePesan1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak ada file yang dipilih..."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelEncryptKey1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encrypt key"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputEncryptKey1">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBrowseEncryptKey1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Browse"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnEncrypt1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encrypt!"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelBasePointEnc1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Base Point"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputBaseEnc1">
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="areaCipherEnc1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="labelEncTime1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Waktu :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelInfoWaktuEnc1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFilesize2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Filesize :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelInfoFilesize1">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSaveCipher1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save Ciphertext"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelKEnc1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="k"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputKEnc1">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelDecryptKey1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fieldInputDecryptKey1" min="-2" pref="111" max="-2" attributes="0"/>
+                                  <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                                  <Component id="btnBrowseDecryptKey1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="labelDecrypt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnBrowseCipher1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="labelFileCipher1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelDecTime1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="labelTimeDec1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelFilesize3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="labelFilesizeDec1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnSavePesan1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnDecrypt1" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelDecrypt1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnBrowseCipher1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFileCipher1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelDecryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputDecryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBrowseDecryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
+                          <Component id="btnDecrypt1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelDecTime1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTimeDec1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelFilesize3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFilesizeDec1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnSavePesan1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labelDecrypt1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Decrypt"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBrowseCipher1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Browse cipher"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBrowseCipher1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFileCipher1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tidak ada file yang dipilih..."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelDecryptKey1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Decrypt key"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputDecryptKey1">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnBrowseDecryptKey1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Browse"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDecrypt1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Decrypt!"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="areaPesanDec1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="labelDecTime1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Waktu :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFilesize3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Filesize :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSavePesan1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save Pesan"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelTimeDec1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFilesizeDec1">
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="labelEncTime">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Waktu :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelInfoWaktuEnc">
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelFilesize">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Filesize :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelInfoFilesize">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSaveCipher">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Save Ciphertext"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelKEnc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="k"/>
-      </Properties>
-    </Component>
   </SubComponents>
 </Form>

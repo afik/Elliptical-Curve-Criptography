@@ -62,160 +62,364 @@ public class ECCgui extends javax.swing.JApplet {
     private void initComponents() {
 
         AppTitle = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        labelInputP = new javax.swing.JLabel();
-        btnSaveKeys = new javax.swing.JButton();
-        labelGenerateKunci = new javax.swing.JLabel();
-        btnGenerateEllipticalGroup = new javax.swing.JButton();
-        btnGeneratePublicKey = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        areaEllipticalGroup = new javax.swing.JTextArea();
-        labelBasePoint = new javax.swing.JLabel();
-        fieldInputP = new javax.swing.JTextField();
-        fieldInputBasePoint = new javax.swing.JTextField();
-        labelPublicKey = new javax.swing.JLabel();
-        fieldPrivateKey = new javax.swing.JTextField();
-        labelPrivateKey = new javax.swing.JLabel();
-        fieldPublicKey = new javax.swing.JTextField();
-        labelEncrypt = new javax.swing.JLabel();
-        btnBrowsePesan = new javax.swing.JButton();
-        labelFilePesan = new javax.swing.JLabel();
-        labelEncryptKey = new javax.swing.JLabel();
-        fieldInputEncryptKey = new javax.swing.JTextField();
-        btnBrowseEncryptKey = new javax.swing.JButton();
-        btnEncrypt = new javax.swing.JButton();
-        labelBasePointEnc = new javax.swing.JLabel();
-        fieldInputBaseEnc = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        areaCipherEnc = new javax.swing.JTextArea();
-        labelEncTime = new javax.swing.JLabel();
-        labelInfoWaktuEnc = new javax.swing.JLabel();
-        labelFilesize = new javax.swing.JLabel();
-        labelInfoFilesize = new javax.swing.JLabel();
-        btnSaveCipher = new javax.swing.JButton();
-        labelKEnc = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        areaEllipticalGroup1 = new javax.swing.JTextArea();
+        labelInputP1 = new javax.swing.JLabel();
+        btnSaveKeys1 = new javax.swing.JButton();
+        labelGenerateKunci1 = new javax.swing.JLabel();
+        btnGenerateEllipticalGroup1 = new javax.swing.JButton();
+        btnGeneratePublicKey1 = new javax.swing.JButton();
+        labelBasePoint1 = new javax.swing.JLabel();
+        fieldInputP1 = new javax.swing.JTextField();
+        fieldInputBasePoint1 = new javax.swing.JTextField();
+        labelPublicKey1 = new javax.swing.JLabel();
+        fieldPrivateKey1 = new javax.swing.JTextField();
+        labelPrivateKey1 = new javax.swing.JLabel();
+        fieldPublicKey1 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        labelEncrypt1 = new javax.swing.JLabel();
+        btnBrowsePesan1 = new javax.swing.JButton();
+        labelFilePesan1 = new javax.swing.JLabel();
+        labelEncryptKey1 = new javax.swing.JLabel();
+        fieldInputEncryptKey1 = new javax.swing.JTextField();
+        btnBrowseEncryptKey1 = new javax.swing.JButton();
+        btnEncrypt1 = new javax.swing.JButton();
+        labelBasePointEnc1 = new javax.swing.JLabel();
+        fieldInputBaseEnc1 = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        areaCipherEnc1 = new javax.swing.JTextArea();
+        labelEncTime1 = new javax.swing.JLabel();
+        labelInfoWaktuEnc1 = new javax.swing.JLabel();
+        labelFilesize2 = new javax.swing.JLabel();
+        labelInfoFilesize1 = new javax.swing.JLabel();
+        btnSaveCipher1 = new javax.swing.JButton();
+        labelKEnc1 = new javax.swing.JLabel();
+        fieldInputKEnc1 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        labelDecrypt1 = new javax.swing.JLabel();
+        btnBrowseCipher1 = new javax.swing.JButton();
+        labelFileCipher1 = new javax.swing.JLabel();
+        labelDecryptKey1 = new javax.swing.JLabel();
+        fieldInputDecryptKey1 = new javax.swing.JTextField();
+        btnBrowseDecryptKey1 = new javax.swing.JButton();
+        btnDecrypt1 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        areaPesanDec1 = new javax.swing.JTextArea();
+        labelDecTime1 = new javax.swing.JLabel();
+        labelFilesize3 = new javax.swing.JLabel();
+        btnSavePesan1 = new javax.swing.JButton();
+        labelTimeDec1 = new javax.swing.JLabel();
+        labelFilesizeDec1 = new javax.swing.JLabel();
 
-        AppTitle.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        AppTitle.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         AppTitle.setText("ECC Implementation");
 
-        labelInputP.setText("p");
+        areaEllipticalGroup1.setColumns(20);
+        areaEllipticalGroup1.setRows(5);
+        jScrollPane6.setViewportView(areaEllipticalGroup1);
 
-        btnSaveKeys.setText("Save Keys");
+        labelInputP1.setText("p");
 
-        labelGenerateKunci.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelGenerateKunci.setText("Generate Kunci");
+        btnSaveKeys1.setText("Save Keys");
 
-        btnGenerateEllipticalGroup.setText("Get Elliptical Group");
-        btnGenerateEllipticalGroup.addActionListener(new java.awt.event.ActionListener() {
+        labelGenerateKunci1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGenerateKunci1.setText("Generate Kunci");
+
+        btnGenerateEllipticalGroup1.setText("Get Elliptical Group");
+        btnGenerateEllipticalGroup1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerateEllipticalGroupActionPerformed(evt);
+                btnGenerateEllipticalGroup1ActionPerformed(evt);
             }
         });
 
-        btnGeneratePublicKey.setText("Generate Public Key");
+        btnGeneratePublicKey1.setText("Generate Public Key");
 
-        areaEllipticalGroup.setColumns(20);
-        areaEllipticalGroup.setRows(5);
-        jScrollPane1.setViewportView(areaEllipticalGroup);
+        labelBasePoint1.setText("Base Point");
 
-        labelBasePoint.setText("Base Point");
+        labelPublicKey1.setText("Public key");
 
-        labelPublicKey.setText("Public key");
+        labelPrivateKey1.setText("Private key");
 
-        labelPrivateKey.setText("Private key");
+        labelEncrypt1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelEncrypt1.setText("Encrypt");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        btnBrowsePesan1.setText("Browse pesan");
+
+        labelFilePesan1.setText("Tidak ada file yang dipilih...");
+
+        labelEncryptKey1.setText("Encrypt key");
+
+        btnBrowseEncryptKey1.setText("Browse");
+
+        btnEncrypt1.setText("Encrypt!");
+
+        labelBasePointEnc1.setText("Base Point");
+
+        areaCipherEnc1.setColumns(20);
+        areaCipherEnc1.setRows(5);
+        jScrollPane7.setViewportView(areaCipherEnc1);
+
+        labelEncTime1.setText("Waktu :");
+
+        labelFilesize2.setText("Filesize :");
+
+        btnSaveCipher1.setText("Save Ciphertext");
+
+        labelKEnc1.setText("k");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelInputP)
-                                .addGap(18, 18, 18)
-                                .addComponent(fieldInputP))
-                            .addComponent(labelGenerateKunci, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(labelBasePointEnc1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fieldInputBaseEnc1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(labelEncryptKey1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fieldInputEncryptKey1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelKEnc1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGenerateEllipticalGroup))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelPublicKey)
-                                .addGap(18, 18, 18)
-                                .addComponent(fieldPublicKey))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelPrivateKey)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fieldPrivateKey, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelBasePoint)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fieldInputBasePoint, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGeneratePublicKey))
-                            .addComponent(btnSaveKeys))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fieldInputKEnc1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBrowseEncryptKey1)))
+                    .addComponent(labelEncrypt1)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnBrowsePesan1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelFilePesan1))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(labelEncTime1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelInfoWaktuEnc1))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(labelFilesize2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelInfoFilesize1))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnSaveCipher1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnEncrypt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelGenerateKunci)
+                .addComponent(labelEncrypt1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelInputP)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fieldInputP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnGenerateEllipticalGroup)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBrowsePesan1)
+                    .addComponent(labelFilePesan1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPrivateKey)
-                    .addComponent(fieldPrivateKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelBasePoint)
-                    .addComponent(fieldInputBasePoint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGeneratePublicKey))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEncryptKey1)
+                    .addComponent(fieldInputEncryptKey1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBrowseEncryptKey1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelBasePointEnc1)
+                    .addComponent(fieldInputBaseEnc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelKEnc1)
+                    .addComponent(fieldInputKEnc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPublicKey)
-                    .addComponent(fieldPublicKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSaveKeys))
+                .addComponent(btnEncrypt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEncTime1)
+                    .addComponent(labelInfoWaktuEnc1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFilesize2)
+                    .addComponent(labelInfoFilesize1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSaveCipher1)
                 .addContainerGap())
         );
 
-        labelEncrypt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelEncrypt.setText("Encrypt");
+        labelDecrypt1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelDecrypt1.setText("Decrypt");
 
-        btnBrowsePesan.setText("Browse pesan");
+        btnBrowseCipher1.setText("Browse cipher");
+        btnBrowseCipher1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseCipher1ActionPerformed(evt);
+            }
+        });
 
-        labelFilePesan.setText("Tidak ada file yang dipilih...");
+        labelFileCipher1.setText("Tidak ada file yang dipilih...");
 
-        labelEncryptKey.setText("Encrypt key");
+        labelDecryptKey1.setText("Decrypt key");
 
-        btnBrowseEncryptKey.setText("Browse");
+        btnBrowseDecryptKey1.setText("Browse");
 
-        btnEncrypt.setText("Encrypt!");
+        btnDecrypt1.setText("Decrypt!");
 
-        labelBasePointEnc.setText("Base Point");
+        areaPesanDec1.setColumns(20);
+        areaPesanDec1.setRows(5);
+        jScrollPane8.setViewportView(areaPesanDec1);
 
-        areaCipherEnc.setColumns(20);
-        areaCipherEnc.setRows(5);
-        jScrollPane2.setViewportView(areaCipherEnc);
+        labelDecTime1.setText("Waktu :");
 
-        labelEncTime.setText("Waktu :");
+        labelFilesize3.setText("Filesize :");
 
-        labelFilesize.setText("Filesize :");
+        btnSavePesan1.setText("Save Pesan");
 
-        btnSaveCipher.setText("Save Ciphertext");
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(labelDecryptKey1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldInputDecryptKey1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBrowseDecryptKey1))
+                    .addComponent(labelDecrypt1)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(btnBrowseCipher1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelFileCipher1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(labelDecTime1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelTimeDec1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(labelFilesize3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelFilesizeDec1))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnSavePesan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnDecrypt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelDecrypt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBrowseCipher1)
+                    .addComponent(labelFileCipher1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDecryptKey1)
+                    .addComponent(fieldInputDecryptKey1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBrowseDecryptKey1))
+                .addGap(37, 37, 37)
+                .addComponent(btnDecrypt1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDecTime1)
+                    .addComponent(labelTimeDec1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFilesize3)
+                    .addComponent(labelFilesizeDec1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSavePesan1)
+                .addContainerGap())
+        );
 
-        labelKEnc.setText("k");
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(labelInputP1)
+                                .addGap(18, 18, 18)
+                                .addComponent(fieldInputP1))
+                            .addComponent(labelGenerateKunci1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGenerateEllipticalGroup1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(labelPublicKey1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(fieldPublicKey1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(labelPrivateKey1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fieldPrivateKey1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(32, 32, 32)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(labelBasePoint1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fieldInputBasePoint1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnGeneratePublicKey1))
+                                    .addComponent(btnSaveKeys1)))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(247, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelGenerateKunci1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelInputP1)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fieldInputP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGenerateEllipticalGroup1)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPrivateKey1)
+                            .addComponent(fieldPrivateKey1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelBasePoint1)
+                            .addComponent(fieldInputBasePoint1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGeneratePublicKey1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPublicKey1)
+                            .addComponent(fieldPublicKey1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSaveKeys1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        jScrollPane5.setViewportView(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,120 +428,84 @@ public class ECCgui extends javax.swing.JApplet {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AppTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEncrypt)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBrowsePesan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelFilePesan))
+                        .addComponent(AppTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(522, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelEncTime)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelInfoWaktuEnc))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelFilesize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelInfoFilesize))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnSaveCipher, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnEncrypt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labelBasePointEnc)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(fieldInputBaseEnc))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labelEncryptKey)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(fieldInputEncryptKey, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnBrowseEncryptKey)
-                                .addComponent(labelKEnc)))))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(AppTitle)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelEncrypt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBrowsePesan)
-                    .addComponent(labelFilePesan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelEncryptKey)
-                    .addComponent(fieldInputEncryptKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowseEncryptKey))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelBasePointEnc)
-                    .addComponent(fieldInputBaseEnc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelKEnc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEncrypt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelEncTime)
-                    .addComponent(labelInfoWaktuEnc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelFilesize)
-                    .addComponent(labelInfoFilesize))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSaveCipher)
+                .addComponent(jScrollPane5)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGenerateEllipticalGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateEllipticalGroupActionPerformed
+    private void btnGenerateEllipticalGroup1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateEllipticalGroup1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGenerateEllipticalGroupActionPerformed
+    }//GEN-LAST:event_btnGenerateEllipticalGroup1ActionPerformed
+
+    private void btnBrowseCipher1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseCipher1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBrowseCipher1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AppTitle;
-    private javax.swing.JTextArea areaCipherEnc;
-    private javax.swing.JTextArea areaEllipticalGroup;
-    private javax.swing.JButton btnBrowseEncryptKey;
-    private javax.swing.JButton btnBrowsePesan;
-    private javax.swing.JButton btnEncrypt;
-    private javax.swing.JButton btnGenerateEllipticalGroup;
-    private javax.swing.JButton btnGeneratePublicKey;
-    private javax.swing.JButton btnSaveCipher;
-    private javax.swing.JButton btnSaveKeys;
-    private javax.swing.JTextField fieldInputBaseEnc;
-    private javax.swing.JTextField fieldInputBasePoint;
-    private javax.swing.JTextField fieldInputEncryptKey;
-    private javax.swing.JTextField fieldInputP;
-    private javax.swing.JTextField fieldPrivateKey;
-    private javax.swing.JTextField fieldPublicKey;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel labelBasePoint;
-    private javax.swing.JLabel labelBasePointEnc;
-    private javax.swing.JLabel labelEncTime;
-    private javax.swing.JLabel labelEncrypt;
-    private javax.swing.JLabel labelEncryptKey;
-    private javax.swing.JLabel labelFilePesan;
-    private javax.swing.JLabel labelFilesize;
-    private javax.swing.JLabel labelGenerateKunci;
-    private javax.swing.JLabel labelInfoFilesize;
-    private javax.swing.JLabel labelInfoWaktuEnc;
-    private javax.swing.JLabel labelInputP;
-    private javax.swing.JLabel labelKEnc;
-    private javax.swing.JLabel labelPrivateKey;
-    private javax.swing.JLabel labelPublicKey;
+    private javax.swing.JTextArea areaCipherEnc1;
+    private javax.swing.JTextArea areaEllipticalGroup1;
+    private javax.swing.JTextArea areaPesanDec1;
+    private javax.swing.JButton btnBrowseCipher1;
+    private javax.swing.JButton btnBrowseDecryptKey1;
+    private javax.swing.JButton btnBrowseEncryptKey1;
+    private javax.swing.JButton btnBrowsePesan1;
+    private javax.swing.JButton btnDecrypt1;
+    private javax.swing.JButton btnEncrypt1;
+    private javax.swing.JButton btnGenerateEllipticalGroup1;
+    private javax.swing.JButton btnGeneratePublicKey1;
+    private javax.swing.JButton btnSaveCipher1;
+    private javax.swing.JButton btnSaveKeys1;
+    private javax.swing.JButton btnSavePesan1;
+    private javax.swing.JTextField fieldInputBaseEnc1;
+    private javax.swing.JTextField fieldInputBasePoint1;
+    private javax.swing.JTextField fieldInputDecryptKey1;
+    private javax.swing.JTextField fieldInputEncryptKey1;
+    private javax.swing.JTextField fieldInputKEnc1;
+    private javax.swing.JTextField fieldInputP1;
+    private javax.swing.JTextField fieldPrivateKey1;
+    private javax.swing.JTextField fieldPublicKey1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JLabel labelBasePoint1;
+    private javax.swing.JLabel labelBasePointEnc1;
+    private javax.swing.JLabel labelDecTime1;
+    private javax.swing.JLabel labelDecrypt1;
+    private javax.swing.JLabel labelDecryptKey1;
+    private javax.swing.JLabel labelEncTime1;
+    private javax.swing.JLabel labelEncrypt1;
+    private javax.swing.JLabel labelEncryptKey1;
+    private javax.swing.JLabel labelFileCipher1;
+    private javax.swing.JLabel labelFilePesan1;
+    private javax.swing.JLabel labelFilesize2;
+    private javax.swing.JLabel labelFilesize3;
+    private javax.swing.JLabel labelFilesizeDec1;
+    private javax.swing.JLabel labelGenerateKunci1;
+    private javax.swing.JLabel labelInfoFilesize1;
+    private javax.swing.JLabel labelInfoWaktuEnc1;
+    private javax.swing.JLabel labelInputP1;
+    private javax.swing.JLabel labelKEnc1;
+    private javax.swing.JLabel labelPrivateKey1;
+    private javax.swing.JLabel labelPublicKey1;
+    private javax.swing.JLabel labelTimeDec1;
     // End of variables declaration//GEN-END:variables
 }
