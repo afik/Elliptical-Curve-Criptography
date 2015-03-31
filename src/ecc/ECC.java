@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import static sun.security.krb5.Confounder.bytes;
 
 /**
  *
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class ECC {
     
     //Attributes
+    private long kForKoblitz;
     private String pesan;
     private byte[] pesanInByte;
     private Point encKey;
@@ -32,15 +34,103 @@ public class ECC {
     private Point basePoint; //asumsi: basepoint yang dipilih user pasti ada di
                             //grup eliptik
     private Curve ec = new Curve();
+    private Point cipher_x;
+    private ArrayList<Point> cipher_ys = new ArrayList<>();
+    private byte[] cipherInByte; 
+
+    public ECC() {
+        this.kForKoblitz = 20; //for simplicity, dibuat selalu tetap
+    }
     
     //Getter - Setter
     public String getPesan (){
         return pesan;
     }
     
+    public byte[] getPesanInByte (){
+        return pesanInByte;
+    }
+    
+    public Point getEncKey (){
+        return encKey;
+    }
+    
+    public long getDecKey (){
+        return decKey;
+    }
+    
+    public String getCipher (){
+        return cipher;
+    }
+    
+    public long getAuxParam (){
+        return auxParam;
+    }
+    
+    public Point getBasePoint (){
+        return basePoint;
+    }
+    
+    public Curve getCurve (){
+        return ec;
+    }
+    
+    public Point getCipherX (){
+        return cipher_x;
+    }
+    
+    public ArrayList<Point> getCipherYs (){
+        return cipher_ys;
+    }
+    
+    public byte[] getCipherInByte (){
+        return cipherInByte;
+    }
+    
     public void setPesan (String s){
         this.pesan = s;
     }
+    
+    public void setPesanInByte (byte[] b){
+        this.pesanInByte = b;
+    }
+    
+    public void setEncKey (Point p){
+        this.encKey = p;
+    }
+    
+    public void setDecKey (long l){
+        this.decKey = l;
+    }
+    
+    public void setCipher (String s){
+        this.cipher = s;
+    }
+    
+    public void setAuxParam (long k){
+        this.auxParam = k;
+    }
+    
+    public void setBasePoint (Point p){
+        this.basePoint = p;
+    }
+    
+    public void setCipherX (Point p){
+        this.cipher_x = p;
+    }
+    
+    public void setCipherInByte (byte[] b){
+        this.cipherInByte = b;
+    }
+    
+    //Unsure about this
+//    public void setCipherYs (ArrayList<Point> alp){
+//        this.cipher_ys = alp;
+//    }
+    //Unsure about setting curve
+//    public void setCurve (Curve c){
+//        this.ec = c;
+//    }
     
     //Read input from file txt 
     public String readFile(String fileInput) throws IOException {
@@ -92,6 +182,63 @@ public class ECC {
         double temp = floor((double)m);
         return (long)temp;
     }
+    
+    //Get pesan yang sudah di-encode
+    public ArrayList<Point> getEncodedMsg(byte[] toBeEncoded) {
+        ArrayList<Point> arrPoint = new ArrayList<>();
+        byte b;
+        Point temp;
+        int len = toBeEncoded.length;
+        for (int i=0; i < len; i++){
+            b = toBeEncoded[i];
+            temp = encodeChar((long)b,kForKoblitz); //bisakah cast byte ke long?
+            arrPoint.set(i, temp);
+        }
+        return arrPoint;
+    }
+    
+    //Enkripsi ECC El Gamal
+    public void Encrypt (){
+        Point temp;
+        Point kPb;
+        kPb = ec.perkalian(encKey, auxParam);
+        ArrayList<Point> toEncrypt = new ArrayList<>();
+        toEncrypt = getEncodedMsg(pesanInByte);
+        this.cipher_x = ec.perkalian(basePoint, auxParam);
+        for (int i=0; i < toEncrypt.size(); i++){
+            temp = ec.penjumlahan(toEncrypt.get(i), kPb);
+            this.cipher_ys.set(i, temp);
+        }
+    }
+    
+    //Fungsi untuk mengubah pasangan titik ciphertext (cipher_ys) ke notasi hexa
+    ////foreach point in cipher_ys di decode dulu, dapet bytenya, convert ke hexa
+    public String pointToHexa(ArrayList<Point> alp){
+        String hexaString;
+        //byte[] temp;
+        for(int i = 0; i < alp.size(); i++){
+            this.cipherInByte[i] = (byte)decodeChar(alp.get(i).getX(),kForKoblitz);
+        }
+        hexaString = byteArrayToHex(cipherInByte);
+        return hexaString;
+    }
+    
+    public static String byteArrayToHex(byte[] a) {
+        StringBuilder sb = new StringBuilder(a.length * 2);
+        for(byte b: a)
+           sb.append(String.format("%02x", b & 0xff));
+        return sb.toString();
+     }
+    
+    //Fungsi untuk membaca hexa lalu menyimpannya ke cipherInByte, utk dekripsi
+    
+    
+    
+    //Fungsi untuk dekripsi: encode cipherInByte, proses per byte, decode
+    
+    
+    
+    
     
     /**
      * @param args the command line arguments

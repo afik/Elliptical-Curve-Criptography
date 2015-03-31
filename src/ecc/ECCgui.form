@@ -419,7 +419,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -450,6 +450,15 @@
                                   <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnDecrypt1" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelBasePointDec" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="fieldInputBaseDec" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="labelKDec" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fieldInputKDec" min="-2" pref="58" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -471,7 +480,14 @@
                               <Component id="fieldInputDecryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnBrowseDecryptKey1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelBasePointDec" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputBaseDec" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelKDec" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fieldInputKDec" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Component id="btnDecrypt1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
@@ -564,6 +580,20 @@
                 <Component class="javax.swing.JLabel" name="labelTimeDec1">
                 </Component>
                 <Component class="javax.swing.JLabel" name="labelFilesizeDec1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelKDec">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="k"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputBaseDec">
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelBasePointDec">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Base Point"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="fieldInputKDec">
                 </Component>
               </SubComponents>
             </Container>
