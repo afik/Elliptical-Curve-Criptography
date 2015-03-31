@@ -13,10 +13,14 @@ public class Curve {
     //Elliptic curves we used is short Weierstrass equation
     //y^2 = x^3+ax+b
     
-    private long a = 1;
-    private long b = 6;
-    private long p = 11;
+    private long a = -1;
+    private long b = 188;
+    private long p ;
     public ArrayList<Point> ellipticGroup;
+    
+    public void setP (long L){
+        this.p = L;
+    }
     
     /**
      * Find all elliptic group of equation y^2 = x^3+ax+b
