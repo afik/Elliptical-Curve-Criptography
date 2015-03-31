@@ -6,6 +6,12 @@
 
 package ecc;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author Afik
@@ -77,7 +83,6 @@ public class ECCgui extends javax.swing.JApplet {
         labelPublicKey1 = new javax.swing.JLabel();
         fieldPrivateKey1 = new javax.swing.JTextField();
         labelPrivateKey1 = new javax.swing.JLabel();
-        fieldPublicKey1 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         labelEncrypt1 = new javax.swing.JLabel();
         btnBrowsePesan1 = new javax.swing.JButton();
@@ -140,7 +145,7 @@ public class ECCgui extends javax.swing.JApplet {
 
         labelBasePoint1.setText("Base Point");
 
-        labelPublicKey1.setText("Public key");
+        labelPublicKey1.setText("Public key :");
 
         labelPrivateKey1.setText("Private key");
 
@@ -148,6 +153,11 @@ public class ECCgui extends javax.swing.JApplet {
         labelEncrypt1.setText("Encrypt");
 
         btnBrowsePesan1.setText("Browse pesan");
+        btnBrowsePesan1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBrowsePesan1MouseClicked(evt);
+            }
+        });
 
         labelFilePesan1.setText("Tidak ada file yang dipilih...");
 
@@ -361,11 +371,8 @@ public class ECCgui extends javax.swing.JApplet {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                        .addComponent(labelPublicKey1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(fieldPublicKey1))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelPublicKey1, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addComponent(labelPrivateKey1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -409,7 +416,6 @@ public class ECCgui extends javax.swing.JApplet {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPublicKey1)
-                            .addComponent(fieldPublicKey1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSaveKeys1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -454,6 +460,29 @@ public class ECCgui extends javax.swing.JApplet {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBrowseCipher1ActionPerformed
 
+    private void btnBrowsePesan1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBrowsePesan1MouseClicked
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        String sb = "";
+        String fullPath = "";
+        String tempPesan;
+        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int retval = fc.showOpenDialog(null);
+        if (retval == JFileChooser.APPROVE_OPTION) {
+                    File selectedfile = fc.getSelectedFile();
+                    sb += selectedfile.getName();
+                    fullPath += selectedfile.getAbsolutePath();
+                    this.labelFilePesan1.setText(sb);
+            try {
+                tempPesan = ecc.readFile(fullPath);
+                ecc.setPesan(tempPesan);
+                System.out.println (ecc.getPesan());
+            } catch (IOException ex) {
+                Logger.getLogger(ECCgui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnBrowsePesan1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AppTitle;
@@ -478,7 +507,6 @@ public class ECCgui extends javax.swing.JApplet {
     private javax.swing.JTextField fieldInputKEnc1;
     private javax.swing.JTextField fieldInputP1;
     private javax.swing.JTextField fieldPrivateKey1;
-    private javax.swing.JTextField fieldPublicKey1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -508,4 +536,6 @@ public class ECCgui extends javax.swing.JApplet {
     private javax.swing.JLabel labelPublicKey1;
     private javax.swing.JLabel labelTimeDec1;
     // End of variables declaration//GEN-END:variables
+    //Atribut tambahan
+    private ECC ecc = new ECC();
 }

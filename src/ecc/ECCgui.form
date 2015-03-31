@@ -85,12 +85,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="labelPublicKey1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="fieldPublicKey1" max="32767" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="labelPublicKey1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="labelPrivateKey1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -147,7 +143,6 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelPublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fieldPublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnSaveKeys1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -221,7 +216,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelPublicKey1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Public key"/>
+                <Property name="text" type="java.lang.String" value="Public key :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="fieldPrivateKey1">
@@ -230,8 +225,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Private key"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="fieldPublicKey1">
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel5">
 
@@ -345,6 +338,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Browse pesan"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBrowsePesan1MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labelFilePesan1">
                   <Properties>

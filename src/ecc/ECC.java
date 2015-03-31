@@ -7,7 +7,13 @@
 package ecc;
 
 import com.google.common.math.LongMath;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import static java.lang.Math.floor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -17,9 +23,14 @@ import java.util.ArrayList;
 public class ECC {
     
     //Attributes
-    //Point pm;
     private String pesan;
-    private Point pb;
+    private byte[] pesanInByte;
+    private Point encKey;
+    private long decKey;
+    private String cipher; //dalam hexa, untuk dibaca lalu diubah ke byte
+    private long auxParam; //nilai k yang digunakan saat enkripsi
+    private Point basePoint; //asumsi: basepoint yang dipilih user pasti ada di
+                            //grup eliptik
     private Curve ec = new Curve();
     
     //Getter - Setter
@@ -29,6 +40,31 @@ public class ECC {
     
     public void setPesan (String s){
         this.pesan = s;
+    }
+    
+    //Read input from file txt 
+    public String readFile(String fileInput) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileInput));
+        try {
+                StringBuilder sb = new StringBuilder();
+                String line = br.readLine();
+
+                while (line != null) {
+                    sb.append(line);
+                    sb.append("\n");
+                    line = br.readLine();
+                }
+                return sb.toString();
+        } finally {
+            br.close();
+        }
+    }
+    
+    //Read input file to byte[]
+    public byte[] readFileToBytes(String fileInput) throws IOException {
+        Path path = Paths.get(fileInput);
+        byte[] data = Files.readAllBytes(path);
+        return data;
     }
     
     //Encode
@@ -60,21 +96,19 @@ public class ECC {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-//        ec = new Curve();
-//        long x = 2;
-//        System.out.println(c.getY(x));
+    public static void main(String[] args) throws IOException {
         Point pm = new Point();
         ECC eccrypt = new ECC();
         pm = eccrypt.encodeChar(11,20);
-        System.out.println(pm.getX() + ", " + pm.getY());
-        long bChar;
-        bChar = eccrypt.decodeChar(224, 20);
-        System.out.println(bChar);
-//        ArrayList<Point> tes = new ArrayList();
-//        tes.add(new Point(2,2));
-//        Point p = new Point(2,2);
-//        System.out.println(tes.contains(p));
+//        System.out.println(pm.getX() + ", " + pm.getY());
+//        long bChar;
+//        bChar = eccrypt.decodeChar(224, 20);
+//        System.out.println(bChar);
+//        char c = 'a';
+//        byte b = (byte)c;
+//        System.out.println(b);
+        byte[] B = eccrypt.readFileToBytes("D:\\[6]\\IF4020 Kripto\\Tucil 3\\testfile.txt");
+        System.out.println(B[0] + "," + B[1] + "," + B.length);
     }
     
 }
