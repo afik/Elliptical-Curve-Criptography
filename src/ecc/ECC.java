@@ -7,6 +7,7 @@
 package ecc;
 
 import com.google.common.math.LongMath;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,8 +19,13 @@ public class ECC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Curve c = new Curve();
-        c.setEllipticGrup();
+        //Curve c = new Curve();
+        //c.setEllipticGrup();
+        
+        ArrayList<Point> tes = new ArrayList();
+        tes.add(new Point(2,2));
+        Point p = new Point(2,2);
+        System.out.println(tes.contains(p));
     }
     
 }
