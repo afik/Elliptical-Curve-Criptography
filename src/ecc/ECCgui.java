@@ -8,9 +8,13 @@ package ecc;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -121,6 +125,7 @@ public class ECCgui extends javax.swing.JApplet {
         fieldInputBaseDec = new javax.swing.JTextField();
         labelBasePointDec = new javax.swing.JLabel();
         fieldInputKDec = new javax.swing.JTextField();
+        labelOutputPubKey = new javax.swing.JLabel();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -134,11 +139,21 @@ public class ECCgui extends javax.swing.JApplet {
         labelInputP1.setText("p");
 
         btnSaveKeys1.setText("Save Keys");
+        btnSaveKeys1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveKeys1MouseClicked(evt);
+            }
+        });
 
         labelGenerateKunci1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelGenerateKunci1.setText("Generate Kunci");
 
         btnGenerateEllipticalGroup1.setText("Get Elliptical Group");
+        btnGenerateEllipticalGroup1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGenerateEllipticalGroup1MouseClicked(evt);
+            }
+        });
         btnGenerateEllipticalGroup1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateEllipticalGroup1ActionPerformed(evt);
@@ -146,6 +161,11 @@ public class ECCgui extends javax.swing.JApplet {
         });
 
         btnGeneratePublicKey1.setText("Generate Public Key");
+        btnGeneratePublicKey1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGeneratePublicKey1MouseClicked(evt);
+            }
+        });
 
         labelBasePoint1.setText("Base Point");
 
@@ -394,7 +414,10 @@ public class ECCgui extends javax.swing.JApplet {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelPublicKey1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(labelPublicKey1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelOutputPubKey))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addComponent(labelPrivateKey1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -438,7 +461,8 @@ public class ECCgui extends javax.swing.JApplet {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPublicKey1)
-                            .addComponent(btnSaveKeys1))
+                            .addComponent(btnSaveKeys1)
+                            .addComponent(labelOutputPubKey))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -505,6 +529,76 @@ public class ECCgui extends javax.swing.JApplet {
         }
     }//GEN-LAST:event_btnBrowsePesan1MouseClicked
 
+    private void btnGenerateEllipticalGroup1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerateEllipticalGroup1MouseClicked
+        // TODO add your handling code here:
+        Curve c = new Curve();
+        long p;
+        String ellipticGroup = "";
+        p = (long)Integer.parseInt(fieldInputP1.getText());
+        c.setP(p);
+        c.setEllipticGrup();
+        ArrayList<Point> p_temp = new ArrayList<>();
+        p_temp = c.ellipticGroup;
+        for (int i = 0; i<p_temp.size();i++){
+            ellipticGroup += "(" + p_temp.get(i).getX() + "," + p_temp.get(i).getY() + ") ";
+        }
+        this.areaEllipticalGroup1.setText(ellipticGroup);
+    }//GEN-LAST:event_btnGenerateEllipticalGroup1MouseClicked
+
+    private void btnGeneratePublicKey1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGeneratePublicKey1MouseClicked
+        // TODO add your handling code here:
+        Curve c = new Curve();
+        long privateKey;
+        Point basePoint = new Point();
+        String bp_temp, x_temp, y_temp;
+        x_temp = "";
+        y_temp = "";
+        privateKey = (long)Integer.parseInt(this.fieldPrivateKey1.getText());
+        bp_temp = this.fieldInputBasePoint1.getText();
+        
+        //asumsi input user selalu dalam format "(x,y)" dan basepoint selalu benar
+        int it = 1;
+        do{
+            x_temp += bp_temp.charAt(it);
+            it++;
+        }while(bp_temp.charAt(it)!= ',');
+        do{
+            y_temp += bp_temp.charAt(it+1);
+            it++;
+        }while(bp_temp.charAt(it+1)!= ')');
+        basePoint.setX((long)Integer.parseInt(x_temp));
+        basePoint.setY((long)Integer.parseInt(y_temp));
+        
+        Point publicKey = c.perkalian(basePoint, privateKey);
+        this.labelOutputPubKey.setText("("+publicKey.getX()+","+publicKey.getY()+")");
+    }//GEN-LAST:event_btnGeneratePublicKey1MouseClicked
+
+    private void btnSaveKeys1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveKeys1MouseClicked
+        // TODO add your handling code here:
+        JFileChooser jf = new JFileChooser();
+        String nf_pub = "";
+        String nf_pri = "";
+        int retval = jf.showSaveDialog(null);
+        if (retval == JFileChooser.APPROVE_OPTION){
+            File savedFile = jf.getSelectedFile();
+            nf_pub += savedFile.getAbsolutePath();
+            nf_pub += ".pub";
+            nf_pri += savedFile.getAbsolutePath();
+            nf_pri += ".pri";
+            try{
+                PrintWriter data_pub = new PrintWriter(nf_pub);
+                data_pub.println(this.labelOutputPubKey.getText());
+                data_pub.close();
+                PrintWriter data_pri = new PrintWriter(nf_pri);
+                data_pri.println(this.fieldPrivateKey1.getText());
+                data_pri.close();
+            } catch (java.io.IOException e){
+                System.out.println("Error saving file.");
+            }
+            
+        }
+    }//GEN-LAST:event_btnSaveKeys1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AppTitle;
@@ -558,10 +652,12 @@ public class ECCgui extends javax.swing.JApplet {
     private javax.swing.JLabel labelInputP1;
     private javax.swing.JLabel labelKDec;
     private javax.swing.JLabel labelKEnc1;
+    private javax.swing.JLabel labelOutputPubKey;
     private javax.swing.JLabel labelPrivateKey1;
     private javax.swing.JLabel labelPublicKey1;
     private javax.swing.JLabel labelTimeDec1;
     // End of variables declaration//GEN-END:variables
     //Atribut tambahan
     private ECC ecc = new ECC();
+    private String filePath;
 }

@@ -86,7 +86,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="labelPublicKey1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="labelPublicKey1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="labelOutputPubKey" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="labelPrivateKey1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -144,6 +148,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelPublicKey1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnSaveKeys1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelOutputPubKey" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="14" max="32767" attributes="0"/>
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
@@ -183,6 +188,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save Keys"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSaveKeys1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelGenerateKunci1">
               <Properties>
@@ -197,6 +205,7 @@
                 <Property name="text" type="java.lang.String" value="Get Elliptical Group"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGenerateEllipticalGroup1MouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerateEllipticalGroup1ActionPerformed"/>
               </Events>
             </Component>
@@ -204,6 +213,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Generate Public Key"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGeneratePublicKey1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelBasePoint1">
               <Properties>
@@ -597,6 +609,8 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="labelOutputPubKey">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

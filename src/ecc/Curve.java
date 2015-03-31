@@ -15,7 +15,7 @@ public class Curve {
     
     private long a = -1;
     private long b = 188;
-    private long p = 751;
+    private long p ;
     public ArrayList<Point> ellipticGroup;
     
     public void setP (long L){
