@@ -61,7 +61,6 @@ public class Curve {
         aCongruence = LongMath.mod(y2, p);
         boolean found = false;
         int j = 0;
-        //for (int j = 1; j<p-1; j++){
         while (!found && j<p-1){
             y3 = p*j + aCongruence;
             if (isPerfectSquare(y3)) {
