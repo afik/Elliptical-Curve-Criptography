@@ -13,7 +13,9 @@ public class ECC {
     //Attributes
     //Point pm;
     private String pesan;
-    private Point pb;
+    private String encrypt;
+    private Point basePoint;
+    private long k;
     private Curve ec = new Curve();
     
     //Getter - Setter
@@ -23,6 +25,10 @@ public class ECC {
     
     public void setPesan (String s){
         this.pesan = s;
+    }
+    
+    public void setBasePoint(Point bp){
+        
     }
     
     //Encode
@@ -52,19 +58,28 @@ public class ECC {
     }
     
     /**
+     * Encrypt message to point
+     */
+    public Point EnkripsiKarakter(char ch){
+        return new Point();
+    }
+            
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        ec = new Curve();
-//        long x = 2;
-//        System.out.println(c.getY(x));
-        Point pm = new Point();
-        ECC eccrypt = new ECC();
-        pm = eccrypt.encodeChar(11,20);
-        System.out.println(pm.getX() + ", " + pm.getY());
-        long bChar;
-        bChar = eccrypt.decodeChar(224, 20);
-        System.out.println(bChar);
+//        Point pm = new Point();
+//        ECC eccrypt = new ECC();
+//        pm = eccrypt.encodeChar(11,20);
+//        System.out.println(pm.getX() + ", " + pm.getY());
+//        long bChar;
+//        bChar = eccrypt.decodeChar(224, 20);
+//        System.out.println(bChar);
+//        
+        Curve cur = new Curve();
+        cur.setEllipticGrup();
+        Point po = new Point(2,2);
+        System.out.println(cur.isPointInGroup(po));
     }
 
     

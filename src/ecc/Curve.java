@@ -13,9 +13,9 @@ public class Curve {
     //Elliptic curves we used is short Weierstrass equation
     //y^2 = x^3+ax+b
     
-    private long a = -1;
-    private long b = 188;
-    private long p = 751;
+    private long a = 1;
+    private long b = 6;
+    private long p = 11;
     public ArrayList<Point> ellipticGroup;
     
     /**
@@ -94,6 +94,23 @@ public class Curve {
     }
     
     
+    /**
+     * Check is point exist in elliptic group
+     */
+    public boolean isPointInGroup(Point p){
+        boolean found = false;
+        int i = 0;
+        while (!found && i<ellipticGroup.size()) {
+            if (p.getX()==ellipticGroup.get(i).getX() && p.getY()==ellipticGroup.get(i).getY()) {
+                found = true;
+            }
+        }
+        return found;
+    }
+    
+    /**
+     * Point operation on elliptic curve
+     */
     public Point penjumlahan(Point q, Point t){
         Point r = new Point();
         if (q == Point.O){
