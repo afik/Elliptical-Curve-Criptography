@@ -154,6 +154,7 @@ public class ECC {
     public byte[] readFileToBytes(String fileInput) throws IOException {
         Path path = Paths.get(fileInput);
         byte[] data = Files.readAllBytes(path);
+        pesanInByte = data;
         return data;
     }
     
