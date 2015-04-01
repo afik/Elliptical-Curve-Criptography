@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 
 /**
  *
- * @author Afik
+ * @author Afik & Hayyu
  */
 public class Curve {
     //Elliptic curves we used is short Weierstrass equation
@@ -58,10 +58,10 @@ public class Curve {
             x++;
        }
        ellipticGroup.add(Point.O);
-       System.out.println("Elliptic grup : " + ellipticGroup.size());
-       for (int i =0; i<ellipticGroup.size(); i++){
-           System.out.print("(" + ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY() + ") ");
-       }
+//       System.out.println("Elliptic grup : " + ellipticGroup.size());
+//       for (int i =0; i<ellipticGroup.size(); i++){
+//           System.out.print("(" + ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY() + ") ");
+//       }
     }
     
     /**
@@ -170,16 +170,18 @@ public class Curve {
     
     public Point perkalian(Point p, long k){
         Point r = new Point();
-        if (k == 1){
-            r.setX(p.getX());
-            r.setY(p.getY());
-        } else {
-            r.setX(perkalian(p,k/2).getX());
-            r.setY(perkalian(p,k/2).getY());
-            r = penggandaan(r);
-            if (k % 2 == 1){
-                r = penjumlahan(r,p);
-            }
+        if (k==0) {
+            r = Point.O;
+        }
+        else if (k==1){
+            r = p;
+        } 
+        else if (k%2==1)
+        {
+            r = penjumlahan(p, perkalian(p, k-1));
+        }
+        else {
+            r = perkalian(penggandaan(p), k/2);
         }
         return r;
     }

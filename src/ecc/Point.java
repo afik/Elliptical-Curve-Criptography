@@ -2,12 +2,12 @@ package ecc;
 
 /**
  *
- * @author Afik
+ * @author Afik & Hayyu
  */
 public class Point {
     private long x;
     private long y;
-    private long a;
+    private long a = 1;
     public static Point O = new Point(Long.MAX_VALUE, Long.MAX_VALUE);
 
     public Point() {
