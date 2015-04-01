@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ecc;
 
 import com.google.common.math.LongMath;
@@ -24,7 +18,7 @@ import static sun.security.krb5.Confounder.bytes;
 public class ECC {
     
     //Attributes
-    private long kForKoblitz;
+    private long kForKoblitz = 20;
     private String pesan;
     private byte[] pesanInByte;
     private Point encKey;
@@ -90,7 +84,7 @@ public class ECC {
     public void setPesan (String s){
         this.pesan = s;
     }
-    
+
     public void setPesanInByte (byte[] b){
         this.pesanInByte = b;
     }
@@ -111,8 +105,15 @@ public class ECC {
         this.auxParam = k;
     }
     
-    public void setBasePoint (Point p){
-        this.basePoint = p;
+    //set base point
+    //ensure it exist in elliptic grup of curve ec
+    public int setBasePoint (Point p){
+        int retVal = -1;
+        if (ec.isPointInGroup(p)){
+            this.basePoint = p;
+            retVal = 1;
+        }
+        return retVal;
     }
     
     public void setCipherX (Point p){
@@ -158,9 +159,10 @@ public class ECC {
         return data;
     }
     
-    //Encode
+    //Encode using koblitz (long -> Point)
     public Point encodeChar (long m, long k){
         Point pm = new Point();
+        boolean encoded = false;
         long it = 1;
         long x, y;
         do{
@@ -169,14 +171,19 @@ public class ECC {
             if(y != 0){
                 pm.setX(x);
                 pm.setY(y);
+                encoded = true;
             }
             it++;
-        }while (ec.getY(x) == 0 && it < k);
+        }while (!encoded && it < k);
         
+        if (!encoded) {
+            pm = Point.O;
+        }
+        //System.out.println(pm.getX() + " " + pm.getY());
         return pm;
     }
     
-    //Decode
+    //Decode using koblitz (point.x -> long)
     public long decodeChar (long x, long k){
         long m;
         m = (x-1) / k;
@@ -193,7 +200,10 @@ public class ECC {
         for (int i=0; i < len; i++){
             b = toBeEncoded[i];
             temp = encodeChar((long)b,kForKoblitz); //bisakah cast byte ke long?
-            arrPoint.set(i, temp);
+            if (temp != Point.O){
+                arrPoint.add(temp);
+                //System.out.println("Point : " + temp.getX() + " " + temp.getY());
+            }
         }
         return arrPoint;
     }
@@ -271,23 +281,34 @@ public class ECC {
     }
       
     
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Point pm = new Point();
         ECC eccrypt = new ECC();
-        pm = eccrypt.encodeChar(11,20);
-//        System.out.println(pm.getX() + ", " + pm.getY());
-//        long bChar;
-//        bChar = eccrypt.decodeChar(224, 20);
-//        System.out.println(bChar);
-//        char c = 'a';
-//        byte b = (byte)c;
-//        System.out.println(b);
-        byte[] B = eccrypt.readFileToBytes("D:\\[6]\\IF4020 Kripto\\Tucil 3\\testfile.txt");
-        System.out.println(B[0] + "," + B[1] + "," + B.length);
+        Point pm = new Point();
+        //pm = eccrypt.encodeChar(11,20);
+        
+        //set curve
+        eccrypt.getCurve().setA(-1);
+        eccrypt.getCurve().setB(188);
+        eccrypt.getCurve().setP(751);
+        eccrypt.getCurve().setEllipticGrup();
+        //read file
+        byte[] B = eccrypt.readFileToBytes("D:\\AFIK\\Project\\ECC\\lorem.txt");
+        
+        //set parameters for encrypt and decrypt
+        eccrypt.setAuxParam(15);
+        int retBase = eccrypt.setBasePoint(new Point(742,745));
+        if (retBase==1) {
+            
+        }
+        else {
+            System.out.println("Base point harus ada di elliptic grup kurva");
+        }
+        
     }
+
     
 }
+      

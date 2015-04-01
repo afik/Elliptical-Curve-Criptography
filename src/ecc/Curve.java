@@ -13,15 +13,22 @@ public class Curve {
     //Elliptic curves we used is short Weierstrass equation
     //y^2 = x^3+ax+b
     
-    private long a = -1;
-    private long b = 188;
+    private long a = 1;
+    private long b = 6;
     private long p ;
     public ArrayList<Point> ellipticGroup;
     
     public void setP (long L){
         this.p = L;
     }
+
+    public void setA (long L){
+        this.a = L;
+    }
     
+    public void setB (long L){
+        this.b = L;
+    }
     /**
      * Find all elliptic group of equation y^2 = x^3+ax+b
      */
@@ -30,7 +37,7 @@ public class Curve {
        long y2, aCongruence, y, y3;
        long x = 0;
        
-       while (x < p-1){
+       while (x < p){
             y2 = (x*x*x + a*x + b);
             aCongruence = LongMath.mod(y2, p);
             for (int j = 1; j<p-1; j++){
@@ -38,11 +45,11 @@ public class Curve {
                 if (isPerfectSquare(y3)) {
                     y = LongMath.sqrt(y3, RoundingMode.UP);
                     Point po = new Point(x,y);
-                    if (!ellipticGroup.contains(po)){
+                    if (!isPointInGroup(po)){
                         ellipticGroup.add(po);
                     }
                     Point pp = new Point(x,p-y);
-                    if (!ellipticGroup.contains(pp)) {
+                    if (!isPointInGroup(pp)) {
                         ellipticGroup.add(pp);
                     }
                     
@@ -50,14 +57,15 @@ public class Curve {
             }
             x++;
        }
-       
+       ellipticGroup.add(Point.O);
+       System.out.println("Elliptic grup : " + ellipticGroup.size());
        for (int i =0; i<ellipticGroup.size(); i++){
-           System.out.println(ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY());
+           System.out.print("(" + ellipticGroup.get(i).getX() + " " +ellipticGroup.get(i).getY() + ") ");
        }
     }
     
     /**
-     * 
+     * Get value Y in curve, known x
      */
     public long getY(long x) {
         long y2, aCongruence, y = 0, y3;
@@ -65,7 +73,6 @@ public class Curve {
         aCongruence = LongMath.mod(y2, p);
         boolean found = false;
         int j = 0;
-        //for (int j = 1; j<p-1; j++){
         while (!found && j<p-1){
             y3 = p*j + aCongruence;
             if (isPerfectSquare(y3)) {
@@ -99,6 +106,24 @@ public class Curve {
     }
     
     
+    /**
+     * Check is point exist in elliptic group
+     */
+    public boolean isPointInGroup(Point p){
+        boolean found = false;
+        int i = 0;
+        while (!found && i<ellipticGroup.size()) {
+            if (p.getX()==ellipticGroup.get(i).getX() && p.getY()==ellipticGroup.get(i).getY()) {
+                found = true;
+            }
+            i++;
+        }
+        return found;
+    }
+    
+    /**
+     * Point operation on elliptic curve
+     */
     public Point penjumlahan(Point q, Point t){
         Point r = new Point();
         if (q == Point.O){
