@@ -2,6 +2,8 @@ package ecc;
 
 import com.google.common.math.LongMath;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import static java.lang.Math.floor;
@@ -240,16 +242,16 @@ public class ECC {
     public static String byteArrayToHex(byte[] a) {
         StringBuilder sb = new StringBuilder(a.length * 2);
         for(byte b: a)
-           sb.append(String.format("%02x ", b & 0xff));
+           sb.append(String.format("%02x", b & 0xff));
         return sb.toString();
      }
     
     //Fungsi untuk membaca hexa lalu menyimpannya ke cipherInByte, utk dekripsi
     public byte[] hexaToByte (String s){
         int len = s.length();
-        byte[] data = new byte[len / 3];
-        for (int i = 0; i < len-3; i += 3) {
-            data[i/3] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i/2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
                                  + Character.digit(s.charAt(i+1), 16));
         }
         return data;
@@ -292,11 +294,19 @@ public class ECC {
         pesan = plaintext;
     }
       
+     private String getHexString(byte[] b) throws Exception {
+        String result = "";
+        for (int i=0; i < b.length; i++) {
+          result +=
+                Integer.toString( ( b[i] & 0xff ) + 0x100, 16).substring( 1 );
+        }
+        return result;
+    }
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
         ECC eccrypt = new ECC();
         Point pm = new Point();
         //pm = eccrypt.encodeChar(11,20);
@@ -307,35 +317,62 @@ public class ECC {
         eccrypt.setAuxParam(87);
         int retBase = eccrypt.setBasePoint(new Point(93,61));
         
-        eccrypt.setPesan("B");
-        byte[] pesanByte = new byte[1];
-        pesanByte[0] = Byte.parseByte("B");
-        eccrypt.setPesanInByte(pesanByte);
-        eccrypt.setEncKey(new Point(5682,-597397));
-        Point p = eccrypt.encodeChar(Long.getLong("B"),eccrypt.kForKoblitz);
-//        eccrypt.Encrypt();
-//        String cipherHexa = eccrypt.pointToHexa(eccrypt.getCipherYs());
-//        System.out.println("Cipher : ");
-//        System.out.println(cipherHexa);
+//        byte[] b = new byte[1];
+//        b[0] = 11;
+//        String str = eccrypt.byteArrayToHex(b);
+//        System.out.println(str);
+//        byte[] ret = eccrypt.hexaToByte(str);
+//        System.out.println(ret[0]);
 //        
-        System.out.println(p.getX() + " " + p.getY());
-        //Encrypt
-//        String pesan = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at purus sed metus consequat condimentum. Ut pulvinar consequat eros, sed consectetur dolor commodo nec. Nullam ornare elit at eros luctus faucibus. Duis viverra massa sed lorem fermentum, sit amet dapibus dui finibus. Aenean augue neque, scelerisque et semper in, lacinia ac orci. Aliquam erat volutpat. Nulla sem nunc, varius eget varius ut, tincidunt rutrum velit.";
-//        eccrypt.setPesan(pesan);
-//        byte[] pesanByte = eccrypt.readFileToBytes("D:\\AFIK\\Project\\ECC\\lorem.txt");
+//        
+//        ArrayList<Point> ap = new ArrayList<>();
+//        ap.add(new Point(9,9));
+//        String p2h = eccrypt.pointToHexa(ap);
+//        System.out.println(p2h);
+        
+        
+//        eccrypt.setPesan("B");
+//        byte[] pesanByte = new byte[1];
+//        pesanByte[0] = Byte.parseByte("B");
 //        eccrypt.setPesanInByte(pesanByte);
 //        eccrypt.setEncKey(new Point(5682,-597397));
+//        Point p = eccrypt.encodeChar(Long.getLong("B"),eccrypt.kForKoblitz);
 //        eccrypt.Encrypt();
 //        String cipherHexa = eccrypt.pointToHexa(eccrypt.getCipherYs());
 //        System.out.println("Cipher : ");
 //        System.out.println(cipherHexa);
 //        
+//        System.out.println(p.getX() + " " + p.getY());
+
+        //Encrypt
+        String pesan = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at purus sed metus consequat condimentum. Ut pulvinar consequat eros, sed consectetur dolor commodo nec. Nullam ornare elit at eros luctus faucibus. Duis viverra massa sed lorem fermentum, sit amet dapibus dui finibus. Aenean augue neque, scelerisque et semper in, lacinia ac orci. Aliquam erat volutpat. Nulla sem nunc, varius eget varius ut, tincidunt rutrum velit.";
+        eccrypt.setPesan(pesan);
+        byte[] pesanByte = eccrypt.readFileToBytes("D:\\AFIK\\Project\\ECC\\lorem.txt");
+        eccrypt.setPesanInByte(pesanByte);
+        eccrypt.setEncKey(new Point(5682,-597397));
+        eccrypt.Encrypt();
+        String stringPoint = "";
+        for (int i = 0; i<eccrypt.getCipherYs().size(); i++) {
+            stringPoint+=eccrypt.getCipherYs().get(i).toString();
+        }
+        String cipherHexa = eccrypt.getHexString(stringPoint.getBytes());
+        //String cipherHexa = eccrypt.pointToHexa(eccrypt.getCipherYs());
+        System.out.println("Cipher : ");
+        System.out.println(cipherHexa);
+        byte[] bytes = cipherHexa.getBytes();
+        FileOutputStream stream = new FileOutputStream(new File("D:\\AFIK\\Project\\ECC\\lorem2.txt"));
+        try {
+            stream.write(bytes);
+        } finally {
+            stream.close();
+        }
+//        
 //        //Decrypt
-//        eccrypt.setDecKey(87); //private key
-//        eccrypt.setCipher(cipherHexa);
-//        eccrypt.setCipherInByte(eccrypt.hexaToByte(cipherHexa));
-//        eccrypt.Decrypt();
-//        System.out.println(eccrypt.getPesan());
+        eccrypt.setDecKey(87); //private key
+        eccrypt.setCipher(cipherHexa);
+        eccrypt.setCipherInByte(eccrypt.hexaToByte(cipherHexa));
+        eccrypt.Decrypt();
+        System.out.println(eccrypt.getPesan());
 //      
     }
 
