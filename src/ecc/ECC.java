@@ -18,7 +18,7 @@ import static sun.security.krb5.Confounder.bytes;
 public class ECC {
     
     //Attributes
-    private long kForKoblitz = 20;
+    public long kForKoblitz;
     private String pesan;
     private byte[] pesanInByte;
     
@@ -30,7 +30,7 @@ public class ECC {
                             //grup eliptik
     private Curve ec = new Curve();
     private Point cipher_x;
-    private ArrayList<Point> cipher_ys = new ArrayList<>();
+    public ArrayList<Point> cipher_ys = new ArrayList<>();
     private byte[] cipherInByte; 
 
     public ECC() {
@@ -125,7 +125,6 @@ public class ECC {
         this.cipherInByte = b;
     }
     
-    //Unsure about this
     public void setCipherYs (ArrayList<Point> alp){
         this.cipher_ys = alp;
     }
@@ -136,7 +135,7 @@ public class ECC {
         try {
                 StringBuilder sb = new StringBuilder();
                 String line = br.readLine();
-
+                
                 while (line != null) {
                     sb.append(line);
                     sb.append("\n");
@@ -152,10 +151,16 @@ public class ECC {
     public byte[] readFileToBytes(String fileInput) throws IOException {
         Path path = Paths.get(fileInput);
         byte[] data = Files.readAllBytes(path);
-        pesanInByte = data;
+        //pesanInByte = data;
         return data;
     }
     
+    //Encode using koblitz (char -> Point)
+    public Point encodeKoblitz (char c, long k){
+        long lc = (long)c;
+        Point p = encodeChar(lc,k);
+        return p;
+    }
     
     //Encode using koblitz (long -> Point)
     public Point encodeChar (long m, long k){
@@ -177,16 +182,17 @@ public class ECC {
         if (!encoded) {
             pm = Point.O;
         }
-        //System.out.println(pm.getX() + " " + pm.getY());
+        //System.out.println("("+pm.getX()+","+pm.getY()+")");
         return pm;
     }
     
-    //Decode using koblitz (point.x -> long)
+    
+    //Decode using koblitz (point.x -> char)
     public char decodeChar (long x, long k){
         long m;
         m = (x-1) / k;
-        //double temp = floor((double)m);
-        return (char)m;
+        double temp = floor((double)m);
+        return (char)temp;
     }
     
     //Get pesan yang sudah di-encode
@@ -195,12 +201,14 @@ public class ECC {
         byte b;
         Point temp;
         int len = toBeEncoded.length;
+        System.out.println("EncodedMsg");
         for (int i=0; i < len; i++){
             b = toBeEncoded[i];
             temp = encodeChar((long)b,kForKoblitz); //bisakah cast byte ke long?
             if (temp != Point.O){
                 arrPoint.add(temp);
             }
+          
         }
         return arrPoint;
     }
@@ -211,7 +219,7 @@ public class ECC {
         Point kPb;
         kPb = ec.perkalian(encKey, auxParam);
         ArrayList<Point> toEncrypt = new ArrayList<>();
-        System.out.println(pesanInByte);
+        //System.out.println(pesanInByte);
         toEncrypt = getEncodedMsg(pesanInByte);
         this.cipher_x = ec.perkalian(basePoint, auxParam);
         for (int i=0; i < toEncrypt.size(); i++){
@@ -255,6 +263,7 @@ public class ECC {
         return data;
     }    
     
+    
     //Fungsi untuk dekripsi: encode cipherInByte, proses per byte, decode
     public void Decrypt (){
         ArrayList<Point> temp = new ArrayList<>();
@@ -267,29 +276,21 @@ public class ECC {
         bkB = ec.perkalian(kB, decKey);
         Point inv_bkB;
         inv_bkB = bkB.inverse();
-        for (int i = 0; i < cipherInByte.length ; i++){
-            p_temp = encodeChar((long)cipherInByte[i],kForKoblitz);
+        //decrypt from cipher_ys
+        System.out.println("Decrypted, must be same with encodemsg: ");
+        for(int i=0; i<cipher_ys.size(); i++){
+            p_temp = ec.penjumlahan(cipher_ys.get(i), inv_bkB);
+            System.out.println("("+p_temp.getX()+","+p_temp.getY()+")");
             temp.add(p_temp);
         }
-        System.out.println("Second point encoded in decrypt");
-        for (int i=0; i<temp.size(); i++){
-            System.out.println(temp.get(i).getX() + " " + temp.get(i).getY());
-        }
-        for (int i = 0; i < temp.size(); i++){
-            p_temp = ec.penjumlahan(temp.get(i), inv_bkB);
-            toBeDecoded.add(p_temp);
-        }
-        System.out.println("Tobedecoded");
-        for (int i=0; i<toBeDecoded.size(); i++){
-            System.out.println(toBeDecoded.get(i).getX() + " " + toBeDecoded.get(i).getY());
-        }
+        
         String decResult = "";
-        for (int i=0; i<toBeDecoded.size(); i++){
-            decResult += decodeChar(toBeDecoded.get(i).getX(), kForKoblitz);
+        for (int i=0; i<temp.size(); i++){
+            decResult += decodeChar(temp.get(i).getX(), kForKoblitz);
         }
         System.out.println("Dec result : " + decResult);
-        String plaintext = new String(decResult);
-        pesan = plaintext;
+//        String plaintext = new String(decResult);
+        pesan = decResult;
     }
       
     
@@ -297,46 +298,35 @@ public class ECC {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        ECC eccrypt = new ECC();
-        Point pm = new Point();
-        //pm = eccrypt.encodeChar(11,20);
-        
+       
+        //blok test
+        ECC ecc = new ECC();
         //set curve
-        eccrypt.getCurve().setP(97);
-        eccrypt.getCurve().setEllipticGrup();
-        eccrypt.setAuxParam(87);
-        int retBase = eccrypt.setBasePoint(new Point(93,61));
-        
-        eccrypt.setPesan("B");
-        byte[] pesanByte = new byte[1];
-        pesanByte[0] = Byte.parseByte("B");
-        eccrypt.setPesanInByte(pesanByte);
-        eccrypt.setEncKey(new Point(5682,-597397));
-        Point p = eccrypt.encodeChar(Long.getLong("B"),eccrypt.kForKoblitz);
-//        eccrypt.Encrypt();
-//        String cipherHexa = eccrypt.pointToHexa(eccrypt.getCipherYs());
-//        System.out.println("Cipher : ");
-//        System.out.println(cipherHexa);
-//        
-        System.out.println(p.getX() + " " + p.getY());
-        //Encrypt
-//        String pesan = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at purus sed metus consequat condimentum. Ut pulvinar consequat eros, sed consectetur dolor commodo nec. Nullam ornare elit at eros luctus faucibus. Duis viverra massa sed lorem fermentum, sit amet dapibus dui finibus. Aenean augue neque, scelerisque et semper in, lacinia ac orci. Aliquam erat volutpat. Nulla sem nunc, varius eget varius ut, tincidunt rutrum velit.";
-//        eccrypt.setPesan(pesan);
-//        byte[] pesanByte = eccrypt.readFileToBytes("D:\\AFIK\\Project\\ECC\\lorem.txt");
-//        eccrypt.setPesanInByte(pesanByte);
-//        eccrypt.setEncKey(new Point(5682,-597397));
-//        eccrypt.Encrypt();
-//        String cipherHexa = eccrypt.pointToHexa(eccrypt.getCipherYs());
-//        System.out.println("Cipher : ");
-//        System.out.println(cipherHexa);
-//        
-//        //Decrypt
-//        eccrypt.setDecKey(87); //private key
-//        eccrypt.setCipher(cipherHexa);
-//        eccrypt.setCipherInByte(eccrypt.hexaToByte(cipherHexa));
-//        eccrypt.Decrypt();
-//        System.out.println(eccrypt.getPesan());
-//      
+        ecc.getCurve().setP(97);
+        ecc.getCurve().setEllipticGrup();
+        ecc.setAuxParam(87);
+        ecc.setEncKey(new Point(5682,-597397));
+        int retBase = ecc.setBasePoint(new Point(93,61));
+        ecc.setDecKey(87);
+        ecc.setPesanInByte(ecc.readFileToBytes("D:/[6]/IF4020 Kripto/Tucil 3/testfile.txt"));
+        System.out.println(retBase);
+//        char c = 'A';
+        ecc.Encrypt();
+        ecc.Decrypt();
+//        System.out.println("Encoding 'A' :");
+//        System.out.println(pc.getX() + "," + pc.getY());  
+//        ecc.setCipherX(ecc.ec.perkalian(ecc.basePoint, ecc.auxParam));
+//        System.out.println("CipherX : " + ecc.cipher_x.getX() + "," + ecc.cipher_x.getY());
+//        Point kPb = ecc.ec.perkalian(ecc.encKey, ecc.auxParam);
+//        Point encrypted = ecc.ec.penjumlahan(kPb, pc);
+//        System.out.println("Encrypted : " + encrypted.getX() + "," + encrypted.getY());
+//        Point bkB = ecc.ec.perkalian(ecc.cipher_x, ecc.decKey);
+//        Point inv_bkB = bkB.inverse();
+//        Point decrypted = ecc.ec.penjumlahan(encrypted, inv_bkB);
+//        System.out.println("Decrypted : " + decrypted.getX() + "," + decrypted.getY());
+//        char c2 = ecc.decodeChar(decrypted.getX(), ecc.kForKoblitz);
+//        System.out.println("Decoding :");
+//        System.out.println(c2);         
     }
 
     

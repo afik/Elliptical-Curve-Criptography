@@ -6,7 +6,9 @@
 
 package ecc;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -722,6 +724,8 @@ public class ECCgui extends javax.swing.JApplet {
         String cipherHexa = ecc.pointToHexa(ecc.getCipherYs());
         this.areaCipherEnc1.setText(cipherHexa);
         this.labelInfoWaktuEnc1.setText(duration + " miliseconds");
+//        ecc.setDecKey(5);
+//        ecc.Decrypt();
     }//GEN-LAST:event_btnEncrypt1MouseClicked
 
     private void btnBrowsePesan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowsePesan1ActionPerformed
@@ -742,8 +746,13 @@ public class ECCgui extends javax.swing.JApplet {
             nf_enc += savedFile.getAbsolutePath();
             nf_enc += ".txt";
             try{
+                String stemp = "";
                 PrintWriter data_pub = new PrintWriter(nf_enc);
-                data_pub.println(this.labelOutputPubKey.getText());
+                for(int i=0; i<ecc.getCipherYs().size() ; i++){
+                    char ctemp = ecc.decodeChar(ecc.getCipherYs().get(i).getX(), ecc.kForKoblitz);
+                    stemp += ctemp;
+                }
+                data_pub.println(stemp);
                 data_pub.close();
             } catch (java.io.IOException e){
                 System.out.println("Error saving file.");
@@ -768,13 +777,11 @@ public class ECCgui extends javax.swing.JApplet {
                     double fileSize = selectedfile.length();
                     this.labelFilesizeDec1.setText(Double.toString(fileSize) + " byte");
             try {
-                tempCipher = ecc.readFile(fullPath);
-                ecc.setCipher(tempCipher);
-                byte[] cib = ecc.hexaToByte(tempCipher);
-                ecc.setCipherInByte(cib);
-                System.out.println (ecc.getCipher());
-                for (int i=0; i<cib.length; i++){
-                    System.out.print(cib[i] + " ");
+                Point ptemp = new Point();
+                byte[] btemp = ecc.readFileToBytes(fullPath);
+                for (int i = 0 ; i < btemp.length ; i++){
+                    ptemp = ecc.encodeChar((long)btemp[i], ecc.kForKoblitz);
+                    ecc.cipher_ys.add(ptemp);
                 }
             } catch (IOException ex) {
                 Logger.getLogger(ECCgui.class.getName()).log(Level.SEVERE, null, ex);
@@ -809,6 +816,7 @@ public class ECCgui extends javax.swing.JApplet {
     }//GEN-LAST:event_btnBrowseDecryptKey1MouseClicked
 
     private void btnDecrypt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDecrypt1MouseClicked
+        long startTime = System.nanoTime();
         ecc.getCurve().setP((long)Integer.parseInt(this.fieldInputP1.getText()));
         ecc.getCurve().setEllipticGrup();
         ecc.setAuxParam((long)Integer.parseInt(this.fieldInputKDec.getText()));
@@ -831,10 +839,13 @@ public class ECCgui extends javax.swing.JApplet {
         String sdecKey = this.fieldInputDecryptKey1.getText();
         long decKey = (long) Integer.parseInt(sdecKey);
         ecc.setDecKey(decKey);
-        ecc.setCipherInByte(ecc.hexaToByte(ecc.getCipher()));
+        //ecc.setCipherInByte(ecc.hexaToByte(ecc.getCipher()));
         ecc.Decrypt();
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime)/1000000;
+        this.labelTimeDec1.setText(duration + " miliseconds");
         String pesan = ecc.getPesan();
-        this.areaCipherEnc1.setText(pesan);
+        this.areaPesanDec1.setText(ecc.getPesan());
     }//GEN-LAST:event_btnDecrypt1MouseClicked
     
 
