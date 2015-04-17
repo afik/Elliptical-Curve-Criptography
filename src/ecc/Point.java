@@ -55,4 +55,9 @@ public class Point {
         return r;
     }
     
+    //Returns a string representation of point
+    public String toString(){
+        String r = "" + x + " " + y;
+        return r;
+    }
 }
